@@ -1,0 +1,27 @@
+{
+  "name": "recipe-book-app",
+  "version": "1.0.0",
+  "description": "A RESTful Recipe App to collect my favourite recipes so i can view them for later use - Based on Colt Steele's Web Developer Bootcamp",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spuddie1984/RESTful-recipe-book-app.git"
+  },
+  "author": "Nathan Collins",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spuddie1984/RESTful-recipe-book-app/issues"
+  },
+  "homepage": "https://github.com/spuddie1984/RESTful-recipe-book-app#readme",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "handlebars": "^4.1.2",
+    "mongoose": "^5.6.8",
+    "semantic-ui": "^2.4.2"
+  }
+}
