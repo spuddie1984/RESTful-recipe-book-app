@@ -13,7 +13,7 @@ app.set('view engine', 'ejs');
 // body parser for POST requests
 app.use(express.urlencoded({ extended: true }));
 // setup static includes folder
-app.use(express.static(__dirname + "/includes" ));
+app.use(express.static( 'includes' ));
 
 ////////// DATABASE SETUP //////////
 mongoose.connect('mongodb://localhost/recipes_app',{ useNewUrlParser: true });
@@ -26,7 +26,7 @@ const recipeSchema = new Schema({
    title: String,
    catergory: [String],
    image: String,
-   url: String,
+   description: String,
    ingredients: {
        subList: {
            subIngredients: String,
@@ -37,6 +37,9 @@ const recipeSchema = new Schema({
 });
 // set the database model
 const Recipes = mongoose.model('Recipes',recipeSchema);
+
+// export the model and schema so that we can seed the database
+module.exports = mongoose.model('Recipes',recipeSchema);
 
 // ROUTES
 
@@ -55,19 +58,25 @@ app.get('/recipes', (req, res) => {
 // NEW 
 // Create a new recipe form
 app.get('/recipes/new', (req, res) => {
-    res.send('Create a new recipe form');
+    res.render('new-recipe');
 });
 
 // CREATE
 // This adds the recipe to the database and normally redirects somewhere
 app.post('/recipes', (req, res) => {
+
     res.send('This adds the recipe to the database and normally redirects somewhere');
+});
+
+// SEARCH
+app.get('/recipes/search', (req, res) => {
+    res.send('This is the Search Route');
 });
 
 // SHOW
 // This displays one recipe only
 app.get('/recipes/:id', (req, res) => {
-    res.send('This displays one recipe only');
+    res.render('show-recipe');
 });
 
 // EDIT

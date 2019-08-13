@@ -1,4 +1,26 @@
 <%- include('partials/header'); %>
+<main>
+    <div class="ui raised very padded text container segment">
+        <header class="ui header center aligned">
+            <h1 class="ui header">The Recipe Book App</h1>
+            <p class="ui sub header">Do you like to cook well you've come to the right place !!!</p>
+        </header>
+        <div class="ui header center aligned">
+            <p>Can't find what you are looking, try a search !!</p>
+        </div>
+        <div class="ui column stackable center page grid">
+            <form class="ui form" method="GET" action="recipes/search">
+                <div class="ui input">
+                    <input class="prompt" type="text" name="search" placeholder="Recipe, category, indgredient type etc">                
+                </div>
+                <button type="submit" class="ui icon button">
+                    <i class="search icon"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+    <section class="ui stackable four column grid">
 
-
+    </section>
+</main>
 <%- include('partials/footer'); %>

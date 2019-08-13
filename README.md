@@ -21,3 +21,12 @@ A RESTful Recipe App to collect my favourite recipes so i can view them for late
 - Create schema for DB
 - create basic folder directory structure  
 - create basic routes
+
+### 2nd Commit - Templating and routing
+- Update routes to include a search route
+- Add templates to certain routes
+- Basic styling of templates
+- add a js folder under includes folder and create a new-recipe.js file
+- Add basic js functionality to the New recipe form
+
+
