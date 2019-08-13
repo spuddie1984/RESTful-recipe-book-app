@@ -24,9 +24,20 @@ A RESTful Recipe App to collect my favourite recipes so i can view them for late
 
 ### 2nd Commit - Templating and routing
 - Update routes to include a search route
-- Add templates to certain routes
+- Add templates to index, search and show routes
 - Basic styling of templates
 - add a js folder under includes folder and create a new-recipe.js file
 - Add basic js functionality to the New recipe form
+- add a partial footer-new-recipe so that we can have js form validation
 
-
+### 3rd Commit - Seed DB add logic to routes
+- create seed file to seed (populate) the Database with dummy data
+- add logic to INDEX and SHOW routes
+- further styling changes
+- add grid of recipes to index template and style accordingly
+- hook up the INDEX route to the db so that all recipes in the db are displayed
+- hook up the SHOW route to the db so that a recipe is displayed with all details eg ingredients, method, photo etc...
+- style header and footer partials
+- add links to footer 
+- cut desciption strings (on each recipe) in the INDEX template so that the recipe grid spacing is all the same
+- add .... to the cut strings so that they original string can be viewed (via javascript)

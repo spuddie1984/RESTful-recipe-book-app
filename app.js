@@ -24,16 +24,16 @@ const Schema = mongoose.Schema;
 // Define the campgroundSchema keys and key types
 const recipeSchema = new Schema({
    title: String,
-   catergory: [String],
+   category: [],
    image: String,
    description: String,
    ingredients: {
        subList: {
-           subIngredients: String,
+           subIngredients: [],
        },
-       ingredients: String,
+       ingredients: [],
    },
-   method: [String],
+   method: [],
 });
 // set the database model
 const Recipes = mongoose.model('Recipes',recipeSchema);
@@ -52,7 +52,13 @@ app.get('/', (req, res) => {
 // INDEX
 // Show all Recipes
 app.get('/recipes', (req, res) => {
-    res.render('index');
+    Recipes.find({}, (err,recipes) => {
+        if(err){
+            console.log(`You have an ${err}`)
+        } else {
+            res.render('index', {recipes:recipes} );
+        }
+    })
 });
 
 // NEW 
@@ -69,14 +75,23 @@ app.post('/recipes', (req, res) => {
 });
 
 // SEARCH
+// shows recipe / recipes you searched for
 app.get('/recipes/search', (req, res) => {
-    res.send('This is the Search Route');
+    res.render('search');
 });
 
 // SHOW
 // This displays one recipe only
 app.get('/recipes/:id', (req, res) => {
-    res.render('show-recipe');
+    const recipeId = req.params.id;
+    Recipes.findById(recipeId, (err, recipe) => {
+        if(err){
+            console.log(err);
+        } else {
+            res.render('show-recipe', {recipe:recipe});
+        }
+    })
+    
 });
 
 // EDIT

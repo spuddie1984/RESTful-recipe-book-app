@@ -1,8 +1,31 @@
 <%- include('partials/header'); %>
-<main class="ui container">
+<main class="ui text container">
     <h1 class="ui center aligned icon header">
-        <i class="circular utensils icon"></i>
-        Recipe variable here
+        <%= recipe.title %>
     </h1>
+    <div class="individual-recipe">
+        <img class="ui massive image" src="<%= recipe.image %>" alt="This is a <%= recipe.title %> recipe">
+        <p class="ui center aligned text"><%= recipe.description %></p>
+    </div>
+    <div class="ui two column stackable grid custom-grid">
+        <div class="column">
+            <h3 class="ui header">Ingredients</h3>
+            <ul class="ui list">
+                <% for(ingredient of recipe.ingredients.ingredients) { %>
+                    <li><%= ingredient %></li>
+                <% } %>
+            </ul>
+        </div>
+        <div class="column">
+            <h3 class="ui header">Method</h3>
+            <ol class="ui list">
+                <% for(step of recipe.method) { %>
+                    <li><%= step %></li>
+                <% } %> 
+            </ol>
+        </div>
+    </div>
+    
+
 </main>
 <%- include('partials/footer'); %>

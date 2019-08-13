@@ -1,17 +1,21 @@
 <%- include('partials/header'); %>
 <main>
-    <div class="ui raised very padded text container segment">
+    <div class="ui text container header-custom">
         <header class="ui header center aligned">
             <h1 class="ui header">The Recipe Book App</h1>
             <p class="ui sub header">Do you like to cook well you've come to the right place !!!</p>
         </header>
+        
+        <div class="ui horizontal divider header">
+            <i class="utensils icon"></i>
+        </div>         
         <div class="ui header center aligned">
             <p>Can't find what you are looking, try a search !!</p>
         </div>
         <div class="ui column stackable center page grid">
-            <form class="ui form" method="GET" action="recipes/search">
+            <form class="ui form form-custom" method="GET" action="recipes/search">
                 <div class="ui input">
-                    <input class="prompt" type="text" name="search" placeholder="Recipe, category, indgredient type etc">                
+                    <input class="prompt" type="text" name="search" placeholder="Recipe or Category">                
                 </div>
                 <button type="submit" class="ui icon button">
                     <i class="search icon"></i>
@@ -19,8 +23,28 @@
             </form>
         </div>
     </div>
-    <section class="ui stackable four column grid">
-
+    <section class="ui container">
+        <div class="ui stackable three column grid custom-grid">
+            <% for(card of recipes){ %>
+                <% function strChecker(str) {return (str.length > 100) ? `${str.substring(0,100)}<a id="more">......</a>` : str;} %>
+                <div class="column">
+                    <div class="ui fluid card">
+                        <div class="image">
+                            <img src="<%= card.image %>">
+                        </div>
+                        <div class="content">
+                            <h3 class="header"><%= card.title %></h3>
+                            <div class="description">
+                                <p><%- strChecker(card.description) %></p>
+                            </div>
+                            <div class="extra content">
+                                <a class="ui blue button custom-button" href="<%= `recipes/${card._id}` %>">More Info</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
     </section>
 </main>
 <%- include('partials/footer'); %>
