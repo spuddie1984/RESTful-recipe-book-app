@@ -10,20 +10,10 @@
       <input type="text" placeholder="Recipe Name">
     </div>
     <div class="field">
-        <label>Category</label>
-        <div class="fields">
-          <div class="eight wide field">      
-            <input type="text" placeholder="Add a category">
-          </div>
-          <!--Each time we add a category (when we click the button)
-              it will be added to session storage, on form submit all the session data will
-              be submitted with the post request -->
-          <div class="two wide field">
-            <button type="submit" class="ui icon button" id="add-category">
-              <i class="plus icon"></i>
-            </button>
-          </div>
-        </div>
+      <label>Category</label>  
+      <div class="custom-input-divs" id="add-category-div">
+        <input class="input-custom" id="add-category-input" type="text" placeholder="Add Category (comma seperated)">
+      </div>         
     </div>
     <div class="field">
       <label>Image</label>
@@ -35,49 +25,10 @@
     </div>
     <div class="field">
       <label>List of Ingredients</label>
-      <div class="fields">
-        <div class="eight wide field">
-          <input type="text" placeholder="Add an Ingredient">
-        </div>
-        <!--Each time we add an ingredient (when we click the button)
-              it will be added to session storage, on form submit all the session data will
-              be submitted with the post request -->
-        <div class="two wide field">
-          <button type="submit" class="ui icon button" id="add-ingredient">
-            <i class="plus icon"></i>
-          </button>
-        </div>
+      <div class="custom-input-divs" id="add-ingredient-div">
+        <input class="input-custom" id="add-ingredient-input" type="text" placeholder="Add Ingredient (comma seperated)">
       </div>
-    </div>
-    <div class="field">
-      <label for="sub-menu-select">Does the ingredients list have any additional recipe ie..spice paste</label>
-        <select class="ui fluid dropdown" id="sub-menu-select">
-          <option value="false">No</option>
-          <option value="true">Yes</option>
-        </select>
-    </div>
-    <div class="fields">
-      <div class="seven wide field">
-        <label for="">Additional Recipe Name</label>
-        <input type="text" placeholder="Recipe Name">
-      </div>  
-      <div class="ten wide field">
-        <label>List of Additional Recipe Ingredients</label>
-        <div class="two fields">
-          <div class="twelve wide field">
-            <input type="text" placeholder="Add an Ingredient">
-          </div>
-          <!--Each time we add a sub ingredient (when we click the button)
-              it will be added to session storage, on form submit all the session data will
-              be submitted with the post request -->
-          <div class="two wide field">
-            <button type="submit" class="ui icon button" id="add-sub-ingredient">
-              <i class="plus icon"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div> 
+    </div>   
     <div class="field">
       <label>Method ie list of steps (seperated by a number with a full stop) ie 1. etc...</label>
       <textarea rows="4"></textarea>

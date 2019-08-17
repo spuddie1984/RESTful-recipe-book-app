@@ -4,9 +4,6 @@
     margin-bottom: 0 !important;
 }
 
-#sub-ingredients{
-    display: block;
-}
 .custom-button{
     margin-top: 1em !important;
 }
@@ -31,14 +28,73 @@
 
 /* Individual Recipe Section (SHOW ROUTE) */
 
+.custom-grid{
+    margin: 3em auto !important;
+}
+
+.individual-recipe{
+    box-shadow:  0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+}
+
 .individual-recipe p{
     text-align: center;
     color: #4f4f4f;
     padding: 1rem;
 }
-.individual-recipe{
+
+.custom-buttons-form{
+    margin:auto;
+    padding: 1em;
     box-shadow:  0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
 }
-.custom-grid{
-    margin: 3em auto !important;
+
+/* NEW Recipe and EDIT Recipe Templates  */
+
+.custom-input-divs{
+    margin: 0;
+    outline: 0;
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    border: 1px solid rgba(34,36,38,.15);
+    border-radius: .28571429rem;
+    padding: .67857143em 1em;
+    font-size: 1em;
+    line-height: 1.21428571em;
+}
+
+.input-custom{
+    border: none !important;
+    display: inline-block !important;
+    box-shadow: none !important;
+    outline: none !important;
+    background-color: transparent !important;
+    padding: 0 6px !important;
+    margin: 0 !important;
+}
+
+.custom-input-divs:focus{
+    border-color: #85b7d9;
+}
+
+.custom-tags{
+    margin: 5px 5px;
+    display: inline-block;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #5bc0de;
+    color: white;
+}
+
+.custom-message{
+    width: auto !important;
+    margin-left: 1em !important; 
+    font-size: 1em !important;
+    box-shadow: none !important;
+    background-color: rgb(222, 235, 255) !important;
+    color: blue !important;
+    font-weight: bold !important;
+}
+
+.custom-message i{
+    font-size: 1.8em !important;
 }

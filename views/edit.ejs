@@ -1,0 +1,59 @@
+<%- include('partials/header'); %>
+<main class="ui raised very padded text container segment">
+<% let test = ``; %>
+<% for(method of recipe.method){ 
+    test += `${method}\n\n`;
+}%>
+  <div class="ui dividing header center aligned">
+      <h2 class="ui header">New Recipe Form</h2>
+  </div>
+  <form method="POST" action="/recipes" class="ui form">
+    <div class="field">
+      <label>Recipe</label>
+      <input type="text" value="<%= recipe.title %>" placeholder="Recipe Name">
+    </div>
+    <div class="field">
+      <label>Category</label>
+      <div class="custom-input-divs" id="edit-category-div">      
+        <input class="input-custom" id="edit-category-input" type="text" value="<%= recipe.category %>" placeholder="Add a category">
+      </div> 
+    </div>
+    <div class="ui icon mini message custom-message">
+        <i class="info message circle icon"></i>
+        <div class="content">
+          <p>Use a comma to seperate new categories added</p>
+        </div>
+    </div>
+    <div class="field">
+      <label>Image</label>
+      <input type="text" value="<%= recipe.image %>" placeholder="Image Url">
+    </div>
+    <div class="field">
+      <label>Description of Recipe</label>
+      <textarea rows="2" placeholder="write your description here"><%= recipe.description %></textarea>
+    </div>
+    <div class="field">
+      <label>List of Ingredients</label>
+      <div class="custom-input-divs" id="edit-ingredient-div">
+        <input class="input-custom" id="edit-ingredient-input" type="text" placeholder="Add an Ingredient">
+      </div>
+    </div>
+    <div class="ui icon mini message custom-message">
+        <i class="info message circle icon"></i>
+        <div class="content">
+          <p>Use a comma to seperate new Ingredients added</p>
+        </div>
+    </div>
+    <div class="field">
+      <label>Method ie list of steps (seperated by a number with a full stop) ie 1. etc...</label>
+      <textarea rows="4"><%= test %></textarea>
+    </div>
+    <div>
+      <a href="/recipes/<%= recipe.id %>">Go Back</a>
+      <button type="submit" class="ui primary button">Submit</button>
+    </div>
+  </form>
+</main>
+
+
+<%- include('partials/footer-edit-recipe'); %>

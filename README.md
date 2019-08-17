@@ -1,6 +1,8 @@
 # RESTful-recipe-book-app
 A RESTful Recipe App to collect my favourite recipes so i can view them for later use - Based on Colt Steele's Web Developer Bootcamp
 
+Im thinking of hosting this on my home server so i can use it when cooking
+
 ## RESTful Routes
 
 | name  |       url        | verb  |            Decription                   |
@@ -30,7 +32,7 @@ A RESTful Recipe App to collect my favourite recipes so i can view them for late
 - Add basic js functionality to the New recipe form
 - add a partial footer-new-recipe so that we can have js form validation
 
-### 3rd Commit - Seed DB add logic to routes
+### 3rd Commit - Seed DB add logic to INDEX and SHOW routes
 - create seed file to seed (populate) the Database with dummy data
 - add logic to INDEX and SHOW routes
 - further styling changes
@@ -41,3 +43,10 @@ A RESTful Recipe App to collect my favourite recipes so i can view them for late
 - add links to footer 
 - cut desciption strings (on each recipe) in the INDEX template so that the recipe grid spacing is all the same
 - add .... to the cut strings so that they original string can be viewed (via javascript)
+
+### 4th Commit - Add logic to DESTROY Route and update edit and new-recipe template logic
+- Add Delete and Edit buttons to Show Template
+- Add a form to the edit template and new recipe template including js logic
+- Install npm package method override for put and delete requests
+- Add logic to the delete route
+- Update form logic (for new-recipe and edit-recipe templates)to use tagged inputs

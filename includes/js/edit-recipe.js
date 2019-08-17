@@ -34,9 +34,9 @@ const tagDeleter = (event) => {
 
 /**************** EVENT LISTENERS **************/
 // listen for comma key press
-document.querySelector('#add-ingredient-input').addEventListener('keyup', tagAdder);
-document.querySelector('#add-category-input').addEventListener('keyup', tagAdder);
+document.querySelector('#edit-ingredient-input').addEventListener('keyup', tagAdder);
+document.querySelector('#edit-category-input').addEventListener('keyup', tagAdder);
 
 // listen for mouse click
-document.querySelector("#add-category-div").addEventListener('click', tagDeleter);
-document.querySelector("#add-ingredient-div").addEventListener('click', tagDeleter);
+document.querySelector("#edit-category-div").addEventListener('click', tagDeleter);
+document.querySelector("#edit-ingredient-div").addEventListener('click', tagDeleter);

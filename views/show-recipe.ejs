@@ -24,8 +24,12 @@
                 <% } %> 
             </ol>
         </div>
-    </div>
-    
-
+        <div class="custom-buttons-form">
+            <form method="POST" action="/recipes/<%= recipe.id %>?_method=DELETE">
+                <button type="submit" class="ui red button">Delete</button>
+                <a class="ui orange button" href="/recipes/<%= recipe.id %>/edit">Edit</a>
+                <a class="ui green button" href="/recipes">Go Back</a>
+            </form>
+        </div>
 </main>
 <%- include('partials/footer'); %>

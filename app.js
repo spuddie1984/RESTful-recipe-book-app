@@ -1,5 +1,6 @@
 const express = require('express'),
       mongoose = require('mongoose'), 
+      methodOverride = require('method-override'),
       app = express();
 
 // For Environment Variables(to be stored in .env)
@@ -14,6 +15,9 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 // setup static includes folder
 app.use(express.static( 'includes' ));
+// So that put and delete requests can be made via html form
+app.use(methodOverride('_method'));
+
 
 ////////// DATABASE SETUP //////////
 mongoose.connect('mongodb://localhost/recipes_app',{ useNewUrlParser: true });
@@ -50,7 +54,7 @@ app.get('/', (req, res) => {
 });
 
 // INDEX
-// Show all Recipes
+// Show all Recipes search the db and pass recipes data to index template
 app.get('/recipes', (req, res) => {
     Recipes.find({}, (err,recipes) => {
         if(err){
@@ -83,6 +87,8 @@ app.get('/recipes/search', (req, res) => {
 // SHOW
 // This displays one recipe only
 app.get('/recipes/:id', (req, res) => {
+    // get recipe id from url string, find that recipe in the db
+    // and pass the recipe data to the show-recipe template
     const recipeId = req.params.id;
     Recipes.findById(recipeId, (err, recipe) => {
         if(err){
@@ -90,14 +96,20 @@ app.get('/recipes/:id', (req, res) => {
         } else {
             res.render('show-recipe', {recipe:recipe});
         }
-    })
-    
+    });  
 });
 
 // EDIT
 // This shows an edit form for one previously existing recipe
 app.get('/recipes/:id/edit', (req, res) => {
-    res.send('This shows an edit form for one previously existing recipe');
+    const id = req.params.id;
+    Recipes.findById(id, (err,recipe) => {
+        if(err){
+            console.log(err);
+        } else {
+            res.render('edit', {recipe:recipe});
+        }
+    })
 });
 
 // UPDATE
@@ -109,7 +121,16 @@ app.put('/recipes/:id', (req, res) => {
 // DESTROY
 // This deletes a recipe then redirects somewhere
 app.delete('/recipes/:id', (req, res) => {
-    res.send('This deletes a recipe then redirects somewhere');
+    const id = req.params.id;
+    // find the specific recipe and delete from db then redirect to recipes page
+    Recipes.findByIdAndRemove(id, (err,deletedRecipe) => {
+        if(err){
+            console.log(err);
+        } else {
+            console.log(deletedRecipe);
+            res.redirect('/recipes')
+        }
+    });
 });
 
 // Our server is listening for requests on the specified port
