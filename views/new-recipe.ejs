@@ -7,35 +7,47 @@
   <form method="POST" action="/recipes" class="ui form">
     <div class="field">
       <label>Recipe</label>
-      <input type="text" placeholder="Recipe Name">
+      <input type="text" name="recipe-title" placeholder="Recipe Name">
     </div>
     <div class="field">
       <label>Category</label>  
       <div class="custom-input-divs" id="add-category-div">
         <input class="input-custom" id="add-category-input" type="text" placeholder="Add Category (comma seperated)">
-      </div>         
+      </div> 
+      <input class="hidden-input" name="categories" type="text" id="add-category-hidden">        
     </div>
     <div class="field">
       <label>Image</label>
-      <input type="text" placeholder="Image Url">
+      <input type="text" name="image-url" placeholder="Image Url">
     </div>
     <div class="field">
       <label>Description of Recipe</label>
-      <textarea rows="2" placeholder="write your description here"></textarea>
+      <textarea rows="2" name="description" placeholder="write your description here"></textarea>
     </div>
     <div class="field">
       <label>List of Ingredients</label>
       <div class="custom-input-divs" id="add-ingredient-div">
         <input class="input-custom" id="add-ingredient-input" type="text" placeholder="Add Ingredient (comma seperated)">
       </div>
+      <input class="hidden-input" name="ingredients" type="text" id="add-ingredient-hidden">
     </div>   
     <div class="field">
-      <label>Method ie list of steps (seperated by a number with a full stop) ie 1. etc...</label>
-      <textarea rows="4"></textarea>
+      <label>Method i.e List of Steps</label>
+      <div class="custom-input-divs" id="add-method-div">
+          <input class="input-custom" id="add-method-input" type="text" placeholder="Add Method / Step (comma seperated)">
+        </div>
+        <input class="hidden-input" name="methods" type="text" id="add-method-hidden">
+      </div>
     </div>
-    <div>
-      <a href="/index">Go Back</a>
-      <button type="submit" class="ui primary button">Submit</button>
+    <div class="ui icon mini message custom-message">
+      <i class="info message circle icon"></i>
+      <div class="content">
+        <p>Use a comma to seperate new methods added</p>
+      </div>
+    </div>
+    <div class="buttons">
+      <a href="/index" class="ui grey button">Go Back</a>
+      <button id="new-recipe-form-button" type="submit" class="ui primary button">Submit</button>
     </div>
   </form>
 </main>

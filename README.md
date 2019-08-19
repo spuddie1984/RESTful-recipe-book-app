@@ -18,7 +18,7 @@ Im thinking of hosting this on my home server so i can use it when cooking
 ## Commit Overview
 
 ### 1st Commit - Installation and Setup
-- Install Express, mongoose, handlebars, foundation and dotenv 
+- Install Express, mongoose, ejs, foundation and dotenv 
 - Setup Express, mongoose 
 - Create schema for DB
 - create basic folder directory structure  
@@ -49,4 +49,13 @@ Im thinking of hosting this on my home server so i can use it when cooking
 - Add a form to the edit template and new recipe template including js logic
 - Install npm package method override for put and delete requests
 - Add logic to the delete route
-- Update form logic (for new-recipe and edit-recipe templates)to use tagged inputs
+- Update form logic (for new-recipe and edit-recipe templates) to use tagged inputs
+
+### 5th Commit - Connect CREATE and UPDATE Routes
+- Add logic (for new-recipe and edit-recipe templates) so that the tagged inputs are sent to the server correctly
+- Add names to all inputs for use on the backend
+- change form submission default behaviour so that on submission of form we can reorganize or data for correct submission to the server
+- Add link on home page to new form route
+
+### 6th Commit - Sanitize Inputs Add SEARCH functionality
+- Add sanitization of corresponding routes

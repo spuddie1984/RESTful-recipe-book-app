@@ -1,5 +1,10 @@
 /* Site Wide */
 
+.buttons{
+    display: flex;
+    justify-content: center;
+}
+
 .footer-custom{
     margin-bottom: 0 !important;
 }
@@ -69,6 +74,10 @@
     background-color: transparent !important;
     padding: 0 6px !important;
     margin: 0 !important;
+}
+
+.hidden-input{
+    display: none;
 }
 
 .custom-input-divs:focus{

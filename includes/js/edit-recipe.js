@@ -32,11 +32,39 @@ const tagDeleter = (event) => {
     }      
 }
 
+function modifyFormSubmission(event) {
+    event.preventDefault();
+    // Grab the tagged ingredients list and put it into an array then stringify
+    // assign stringified list to hidden input value for submission to server
+    function stringifier(tagSelector, inputSelector){
+        const arrayOfTags = [];
+        const hiddenInput = document.getElementById(inputSelector);
+        const Tags = document.getElementById(tagSelector).querySelectorAll("span");
+        for(tag of Tags){
+            arrayOfTags.push(tag.innerText);
+        }
+        hiddenInput.value = JSON.stringify(arrayOfTags);
+    }
+    // Ingredient Stringifier
+    stringifier('edit-ingredient-div','edit-ingredient-hidden');
+    // Categories Stringifier
+    stringifier('edit-category-div','edit-category-hidden');
+    // Method Stringifer
+    stringifier('edit-methods-div','edit-method-hidden');
+    // Finally submit form to server
+    document.querySelector('form').submit(); 
+}
+
 /**************** EVENT LISTENERS **************/
 // listen for comma key press
 document.querySelector('#edit-ingredient-input').addEventListener('keyup', tagAdder);
 document.querySelector('#edit-category-input').addEventListener('keyup', tagAdder);
+document.querySelector('#edit-methods-input').addEventListener('keyup', tagAdder);
 
 // listen for mouse click
 document.querySelector("#edit-category-div").addEventListener('click', tagDeleter);
 document.querySelector("#edit-ingredient-div").addEventListener('click', tagDeleter);
+document.querySelector("#edit-methods-div").addEventListener('click', tagDeleter);
+
+// Modify default form submission
+document.querySelector("#edit-form-button").addEventListener('click', modifyFormSubmission);
