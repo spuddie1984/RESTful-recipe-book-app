@@ -1,6 +1,8 @@
 const express = require('express'),
       mongoose = require('mongoose'), 
       methodOverride = require('method-override'),
+      seedDB = require('./seed-database');
+      Recipes = require('./models/recipe-model'),
       app = express();
 
 // For Environment Variables(to be stored in .env)
@@ -22,30 +24,10 @@ app.use(methodOverride('_method'));
 ////////// DATABASE SETUP //////////
 mongoose.connect('mongodb://localhost/recipes_app',{ useNewUrlParser: true });
 
-/////// DB SCHEMA AND MODEL ///////
+// Reseed the DB
+seedDB();
 
-const Schema = mongoose.Schema;
-// Define the campgroundSchema keys and key types
-const recipeSchema = new Schema({
-   title: String,
-   category: [],
-   image: String,
-   description: String,
-   ingredients: {
-       subList: {
-           subIngredients: [],
-       },
-       ingredients: [],
-   },
-   method: [],
-});
-// set the database model
-const Recipes = mongoose.model('Recipes',recipeSchema);
-
-// export the model and schema so that we can seed the database
-module.exports = mongoose.model('Recipes',recipeSchema);
-
-// ROUTES
+// ROUTES   
 
 // ROOT
 // Redirect to INDEX ROUTE
@@ -74,8 +56,20 @@ app.get('/recipes/new', (req, res) => {
 // CREATE
 // This adds the recipe to the database and normally redirects somewhere
 app.post('/recipes', (req, res) => {
-
-    res.send('This adds the recipe to the database and normally redirects somewhere');
+    Recipes.create({
+        title: req.body.title,
+        category: JSON.parse(req.body.category),
+        image: req.body.image,
+        description: req.body.description,
+        ingredients: JSON.parse(req.body.ingredients),
+        method: JSON.parse(req.body.method)
+    }, (err) => {
+        if(err) {
+            console.log(err);
+        } else {
+            res.redirect('/');
+        }
+    });
 });
 
 // SEARCH
@@ -102,8 +96,7 @@ app.get('/recipes/:id', (req, res) => {
 // EDIT
 // This shows an edit form for one previously existing recipe
 app.get('/recipes/:id/edit', (req, res) => {
-    const id = req.params.id;
-    Recipes.findById(id, (err,recipe) => {
+    Recipes.findById(req.params.id, (err,recipe) => {
         if(err){
             console.log(err);
         } else {
@@ -115,7 +108,21 @@ app.get('/recipes/:id/edit', (req, res) => {
 // UPDATE
 // This updates the recipe in the DB then redirects somewhere
 app.put('/recipes/:id', (req, res) => {
-    res.send('This updates the recipe in the DB then redirects somewhere');
+    Recipes.findByIdAndUpdate(req.params.id, {
+        title: req.body.title,
+        category: JSON.parse(req.body.category),
+        image: req.body.image,
+        description: req.body.description,
+        ingredients: JSON.parse(req.body.ingredients),
+        method: JSON.parse(req.body.method)
+    }, (err, updatedRecipe) => {
+        if(err) {
+            console.log(err);
+        } else {
+            console.log(updatedRecipe);
+            res.redirect('/recipes');
+        }
+    });
 });
 
 // DESTROY

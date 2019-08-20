@@ -59,14 +59,11 @@
     margin: 0;
     outline: 0;
     font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-    border: 1px solid rgba(34,36,38,.15);
-    border-radius: .28571429rem;
-    padding: .67857143em 1em;
     font-size: 1em;
     line-height: 1.21428571em;
 }
 
-.input-custom{
+/* .input-custom{
     border: none !important;
     display: inline-block !important;
     box-shadow: none !important;
@@ -74,7 +71,7 @@
     background-color: transparent !important;
     padding: 0 6px !important;
     margin: 0 !important;
-}
+} */
 
 .hidden-input{
     display: none;

@@ -3,28 +3,28 @@
   <div class="ui dividing header center aligned">
       <h2 class="ui header">Edit Recipe Form</h2>
   </div>
-  <form method="POST" action="/recipes" class="ui form">
+  <form method="POST" action="/recipes/<%- recipe.id %>?_method=PUT" class="ui form">
     <div class="field">
       <label>Recipe</label>
-      <input type="text" name="recipe-title" value="<%= recipe.title %>" placeholder="Recipe Name">
+      <input type="text" name="title" value="<%= recipe.title %>" placeholder="Recipe Name">
     </div>
     <div class="field">
       <label>Category</label>
+      <input class="input-custom" id="edit-category-input" type="text" value="" placeholder="Add a category">
       <div class="custom-input-divs" id="edit-category-div">
-          <% for(category of recipe.category){ %> <%- `<span class="custom-tags">${category}<i class="close icon"></i></span>` %><% } %>      
-        <input class="input-custom" id="edit-category-input" type="text" value="" placeholder="Add a category">
+        <% for(category of recipe.category){ %> <%- `<span class="custom-tags">${category}<i class="close icon"></i></span>` %><% } %>  
       </div>
-      <input class="hidden-input" name="categories" type="text" id="edit-category-hidden">
+      <input class="hidden-input" name="category" type="text" id="edit-category-hidden">
     </div>
     <div class="ui icon mini message custom-message">
-        <i class="info message circle icon"></i>
-        <div class="content">
-          <p>Use a comma to seperate new categories added</p>
-        </div>
+      <i class="info message circle icon"></i>
+      <div class="content">
+        <p>Use a comma to seperate new categories added</p>
+      </div>
     </div>
     <div class="field">
       <label>Image</label>
-      <input type="text" name="image-url" value="<%= recipe.image %>" placeholder="Image Url">
+      <input type="text" name="image" value="<%= recipe.image %>" placeholder="Image Url">
     </div>
     <div class="field">
       <label>Description of Recipe</label>
@@ -32,9 +32,9 @@
     </div>
     <div class="field">
       <label>List of Ingredients</label>
+      <input class="input-custom" id="edit-ingredient-input" type="text" placeholder="Add an Ingredient">
       <div class="custom-input-divs" id="edit-ingredient-div">
-          <% for(ingredient of recipe.ingredients.ingredients){ %> <%- `<span class="custom-tags">${ingredient}<i class="close icon"></i></span>` %><% } %>
-        <input class="input-custom" id="edit-ingredient-input" type="text" placeholder="Add an Ingredient">
+        <% for(ingredient of recipe.ingredients){ %> <%- `<span class="custom-tags">${ingredient}<i class="close icon"></i></span>` %><% } %>
       </div>
       <input class="hidden-input" name="ingredients" type="text" id="edit-ingredient-hidden">
     </div>
@@ -46,9 +46,9 @@
     </div>
     <div class="field">
       <label>Method i.e A list of Steps</label>
+      <input class="input-custom" id="edit-methods-input" type="text" placeholder="Add a Step">
       <div class="custom-input-divs" id="edit-methods-div">
-          <% for(method of recipe.method){ %> <%- `<span class="custom-tags">${method}<i class="close icon"></i></span>` %><% } %>
-        <input class="input-custom" id="edit-methods-input" type="text" placeholder="Add a Step">
+        <% for(method of recipe.method){ %> <%- `<span class="custom-tags">${method}<i class="close icon"></i></span>` %><% } %>
       </div>
       <input class="hidden-input" name="method" type="text" id="edit-method-hidden">
     </div>

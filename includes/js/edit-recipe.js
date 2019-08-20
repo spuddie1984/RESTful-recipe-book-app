@@ -17,7 +17,7 @@ function tagAdder(event) {
     // make sure that the tag has content   
     if (this.value.length > 1){
         if(event.keyCode === 188){            
-            this.parentElement.insertAdjacentElement("afterbegin",taggedInputCreator(this));
+            this.nextElementSibling.insertAdjacentElement("beforeend",taggedInputCreator(this));
             // clear placeholder text and the content ready for the next tagged input to be entered
             this.placeholder = "";
             this.value = "";

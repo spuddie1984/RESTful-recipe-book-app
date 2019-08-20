@@ -1,24 +1,28 @@
 <%- include('partials/header'); %>
 <main class="ui raised very padded text container segment">
-  
   <div class="ui dividing header center aligned">
       <h2 class="ui header">New Recipe Form</h2>
   </div>
   <form method="POST" action="/recipes" class="ui form">
     <div class="field">
       <label>Recipe</label>
-      <input type="text" name="recipe-title" placeholder="Recipe Name">
+      <input type="text" name="title" placeholder="Recipe Name">
     </div>
     <div class="field">
       <label>Category</label>  
-      <div class="custom-input-divs" id="add-category-div">
-        <input class="input-custom" id="add-category-input" type="text" placeholder="Add Category (comma seperated)">
-      </div> 
-      <input class="hidden-input" name="categories" type="text" id="add-category-hidden">        
+      <input class="input-custom" id="add-category-input" type="text" placeholder="Add Category (comma seperated)">
+      <div class="custom-input-divs" id="add-category-div"></div> 
+      <input class="hidden-input" name="category" type="text" id="add-category-hidden">        
+    </div>
+    <div class="ui icon mini message custom-message">
+      <i class="info message circle icon"></i>
+      <div class="content">
+        <p>Use a comma to seperate new Categories added</p>
+      </div>
     </div>
     <div class="field">
       <label>Image</label>
-      <input type="text" name="image-url" placeholder="Image Url">
+      <input type="text" name="image" placeholder="Image Url">
     </div>
     <div class="field">
       <label>Description of Recipe</label>
@@ -26,23 +30,26 @@
     </div>
     <div class="field">
       <label>List of Ingredients</label>
-      <div class="custom-input-divs" id="add-ingredient-div">
-        <input class="input-custom" id="add-ingredient-input" type="text" placeholder="Add Ingredient (comma seperated)">
-      </div>
+      <input class="input-custom" id="add-ingredient-input" type="text" placeholder="Add Ingredient (comma seperated)">
+      <div class="custom-input-divs" id="add-ingredient-div"></div>
       <input class="hidden-input" name="ingredients" type="text" id="add-ingredient-hidden">
-    </div>   
+    </div>  
+    <div class="ui icon mini message custom-message">
+      <i class="info message circle icon"></i>
+      <div class="content">
+        <p>Use a comma to seperate new Ingredients added</p>
+      </div>
+    </div> 
     <div class="field">
       <label>Method i.e List of Steps</label>
-      <div class="custom-input-divs" id="add-method-div">
-          <input class="input-custom" id="add-method-input" type="text" placeholder="Add Method / Step (comma seperated)">
-        </div>
-        <input class="hidden-input" name="methods" type="text" id="add-method-hidden">
-      </div>
+      <input class="input-custom" id="add-method-input" type="text" placeholder="Add Method / Step (comma seperated)">
+      <div class="custom-input-divs" id="add-method-div"></div>
+        <input class="hidden-input" name="method" type="text" id="add-method-hidden">
     </div>
     <div class="ui icon mini message custom-message">
       <i class="info message circle icon"></i>
       <div class="content">
-        <p>Use a comma to seperate new methods added</p>
+        <p>Use a comma to seperate a new Method / Step</p>
       </div>
     </div>
     <div class="buttons">
