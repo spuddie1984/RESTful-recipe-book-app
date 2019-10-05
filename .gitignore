@@ -1,4 +1,6 @@
 node_modules
 .env
-semantic
+includes/semantic/tasks
+includes/semantic/gulpfile.js
+includes/semantic/src
 semantic.json
