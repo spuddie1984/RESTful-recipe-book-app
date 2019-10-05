@@ -1,6 +1,9 @@
 {
   "name": "recipe-book-app",
   "version": "1.0.0",
+  "engines": {
+    "node": "8.10.0"
+  },
   "description": "A RESTful Recipe App to collect my favourite recipes so i can view them for later use - Based on Colt Steele's Web Developer Bootcamp",
   "main": "app.js",
   "scripts": {
