@@ -60,6 +60,13 @@ Im thinking of hosting this on my home server so i can use it when cooking
 ### 6th Commit - Hook up CREATE + UPDATE Routes to DB
 - Update seed file
 - Update recipe model, remove unused variables
+- Add models file structure
 - Update new form and edit form styling
 - hook up DB to UPDATE Route
 - hook up DB to CREATE Route 
+
+### 7th Commit - Sanitization and SEARCH Route db Integration
+- Sanitize form inputs 
+- Add semantic-ui form validation
+- center footer links
+- disable seeding of database each server restart
